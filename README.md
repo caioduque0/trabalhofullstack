@@ -1,5 +1,4 @@
-# <img src="wave.gif" alt="Badge" style="width: 40%;">
-Olá querido Professor Tiago Ravache!
+# <img src="wave.gif" alt="Badge" style="width: 40%;"> Olá querido Professor Tiago Ravache!
 
 - Neste repositório está o trabalho solicitado por ti no Classroom
 - Preciso ressaltar que não consegui fazer o upload de uma pasta do Back-End, devido a quantidade de arquivos dela ser acima de 100;
