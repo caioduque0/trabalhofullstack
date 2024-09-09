@@ -5,4 +5,13 @@
 - Tal pasta se chama **`node_modules`** e foi gerada via comando no terminal;
 - Fiz os testes com o Postgres e parece que tudo está certo!
 
-<img src="postgres1.png" alt="Descrição da Imagem" width="500px">
+-------
+
+# Screenshots: Comandos
+- 1> Criação da database no powershell
+
+<img src="postgres1.png" alt="Comando da criação da database" width="500px">
+
+- 2> Inicializando o servidor
+
+<img src="backend1.png" alt="Inicializando o servidor" width="500px">
