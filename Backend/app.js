@@ -1,28 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Endereco } = require('./models');
+const { Pessoa } = require('./models');
 
 const app = express();
 app.use(bodyParser.json());
 
-app.post('/api/enderecos', async (req, res) => {
-  const { rua, cidade, estado, cep } = req.body;
-
+// Rota para cadastrar pessoa
+app.post('/pessoa', async (req, res) => {
+  const { nome, cpf, telefone } = req.body;
   try {
-    const novoEndereco = await Endereco.create({ rua, cidade, estado, cep });
-    res.status(201).json(novoEndereco);
+    const novaPessoa = await Pessoa.create({ nome, cpf, telefone });
+    res.status(201).json(novaPessoa);
   } catch (error) {
-    res.status(400).json({ message: 'Erro ao salvar o endereço' });
+    res.status(400).json({ error: 'Erro ao cadastrar pessoa' });
   }
 });
 
-app.get('/api/enderecos', async (req, res) => {
-  try {
-    const enderecos = await Endereco.findAll();
-    res.status(200).json(enderecos);
-  } catch (error) {
-    res.status(400).json({ message: 'Erro ao buscar os endereços' });
-  }
+// Rota para listar pessoas cadastradas
+app.get('/pessoas', async (req, res) => {
+  const pessoas = await Pessoa.findAll();
+  res.json(pessoas);
 });
 
 app.listen(3000, () => {
