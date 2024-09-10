@@ -1,35 +1,34 @@
-document.getElementById('formEndereco').addEventListener('submit', async (event) => {
+document.getElementById('formPessoa').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const rua = document.getElementById('rua').value;
-    const cidade = document.getElementById('cidade').value;
-    const estado = document.getElementById('estado').value;
-    const cep = document.getElementById('cep').value;
+    const nome = document.getElementById('nome').value;
+    const cpf = document.getElementById('cpf').value;
+    const telefone = document.getElementById('telefone').value;
 
-    const addressData = {
-        rua,
-        cidade,
-        estado,
-        cep
+    const pessoaData = {
+        nome,
+        cpf,
+        telefone
     };
+
     try {
-        const response = await fetch('http://localhost:3000/api/enderecos', {
+        const response = await fetch('http://localhost:3000/pessoa', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(addressData)
+            body: JSON.stringify(pessoaData)
         });
     
         const result = await response.json();
     
         if (response.ok) {
-            document.getElementById('message').innerText = 'Endereço enviado com sucesso!';
-            document.getElementById('formEndereco').reset();
+            document.getElementById('message').innerText = 'Pessoa cadastrada com sucesso!';
+            document.getElementById('formPessoa').reset();
         } else {
             document.getElementById('message').innerText = `Erro: ${result.message}`;
         }
     } catch (error) {
         document.getElementById('message').innerText = 'Erro na comunicação com o servidor.';
-    }    
+    }
 });
